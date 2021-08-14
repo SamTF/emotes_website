@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="emotestyle.css">
+
+    <!-- Importing JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <!-- Tab Title -->
+    <title>Emotes</title>
+
+    <!-- Link embed stuff! BIG WOW IT WORKS!!! -->
+    <meta property="og:site_name"   content="emotes.freelancepolice.org">               <!-- Top of the embed -->
+    <meta property="og:title"       content="Freelance Police Emotes">                  <!-- Big Bold Letters -->
+    <meta property="og:description" content="All the classics are here! &#x1F60E">      <!-- Subtitle, smaller, under title - to display emojis : https://www.kirupa.com/html5/emoji.htm -->
+    <meta property="og:image"       content="emotes.freelancepolice/thumb.webp">        <!-- Cool big ol thumbnail :) -->
+    <meta name="theme-color"        content="#7FFFD4">                                  <!-- Embed sidebar colour! -->
+    <meta name="twitter:card"       content="summary_large_image">                      <!-- BIG image -->
+</head>
+<body>
+    <h1>Emotes</h1>
+
+    <section class="emotes">
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+        <div class="card"><img src="images/BadNews.gif"><div class="emote-name"></div></div>
+    </section>
+
+    <br><br><br>
+
+    <!-- EMOTE CARD TEMPLATE -->
+    <template id="template-card">
+        <div class="card">
+            <img src="">
+            <div class="emote-name"></div>
+        </div>
+    </template>
+
+    <br><br><br><br><br><br>
+
+
+    <!-- SERVER VERSION -->
+    <script>
+        console.log('HYPERS v1.1');
+        var emotes = new Array();
+
+        // LOOPS THROUGH ALL IMAGES IN THE /IMAGES/ FOLDER -> https://stackoverflow.com/questions/39388933/get-filenames-in-a-given-directory-jquery
+        $.ajax({
+          url: "./images/",
+          success: function(data){
+            // $(data).find("li > a").each(function(){
+            $(data).find("a").each(function(){
+
+                // gets the 'href' property of the element - the image URL
+                var file_name = $(this).attr("href");                   // the link property in the a tag - used to link the image
+                var emote_name =  $(this).text();                       // the actual text value of the link - used to display the image name because of names with symbols !!??::%%$$
+
+                // filters out all python files and directories
+                if (file_name.endsWith('.py') || file_name.endsWith('/')) {
+                    return;
+                }
+
+                // CREATES EMOTE CARD
+                var clone = $($("#template\\-card").html());                // gets the template html code (jquery can't get the element directly)
+                $("img",clone).attr('src', 'images/' + file_name);          // loads the emote image
+                $(".emote-name",clone).text(get_emote_name(emote_name));    // sets the emote name
+
+                $(".emotes").append(clone);                                 // adds the emote card to the emotes section
+            });
+          }
+        });
+
+        // Gets the emote's name from the file path
+        function get_emote_name(source) {
+            var emote_name = source.slice(0, -4);       // removes the .png
+            return emote_name;
+        }
+        
+        console.log('emote names');
+        console.log(emotes);
+        
+    </script>
+</body>
+</html>
