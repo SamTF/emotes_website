@@ -42,9 +42,8 @@
 
     <!-- SCRIPT TO GET AND DISPLAY ALL EMOTES -->
     <script>
-        console.log('HYPERS v1.1');
-        var emotes = new Array();
-
+        console.log('HYPERS v1.1.1');
+        
         // LOOPS THROUGH ALL IMAGES IN THE /IMAGES/ FOLDER -> https://stackoverflow.com/questions/39388933/get-filenames-in-a-given-directory-jquery
         $.ajax({
           url: "./images/",
@@ -58,7 +57,6 @@
 
                 // filters out all files that aren't PNG or GIF
                 if (!file_name.endsWith('.gif') && !file_name.endsWith('.png')) {
-                    console.log(file_name);
                     return;
                 }
 
@@ -77,10 +75,6 @@
             var emote_name = source.slice(0, -4);       // removes the .png
             return emote_name;
         }
-        
-        console.log('emote names');
-        console.log(emotes);
-        
     </script>
 </body>
 </html>
