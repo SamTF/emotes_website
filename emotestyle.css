@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+
 body{
     /* BACKGROUND IMAGE */
     background-image: url("static/bg_worms_lowres.png");
@@ -5,7 +7,7 @@ body{
     background-size: 150%;
     
     /* ALL TEXT inside the BODY */
-    font: normal 16px "Comic Sans MS", cursive;
+    font: normal 16px "Comic Sans MS", "Quicksand", sans-serif;
     color: cornsilk;
 
     /* Custom cursor :o */
@@ -66,6 +68,7 @@ h1{
 
     /* COLOURS */
     background: #ffffff25;
+    background: #2f333a5b;
     backdrop-filter: blur(6px);
 
     /* BORDER */
