@@ -57,7 +57,7 @@
                 var emote_name =  $(this).text();                       // the actual text value of the link - used to display the image name because of names with symbols !!??::%%$$
 
                 // filters out all files that aren't PNG or GIF
-                if (!file_name.endsWith('.gif')) {
+                if (!file_name.endsWith('.gif') && !file_name.endsWith('.png')) {
                     console.log(file_name);
                     return;
                 }
