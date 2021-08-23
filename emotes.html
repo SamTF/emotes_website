@@ -40,7 +40,7 @@
     <br><br><br><br><br><br>
 
 
-    <!-- SERVER VERSION -->
+    <!-- SCRIPT TO GET AND DISPLAY ALL EMOTES -->
     <script>
         console.log('HYPERS v1.1');
         var emotes = new Array();
@@ -56,8 +56,8 @@
                 var file_name = $(this).attr("href");                   // the link property in the a tag - used to link the image
                 var emote_name =  $(this).text();                       // the actual text value of the link - used to display the image name because of names with symbols !!??::%%$$
 
-                // filters out all python files and directories
-                if (file_name.endsWith('.py') || file_name.endsWith('/')) {
+                // filters out all files that aren't PNG or GIF
+                if (!file_name.endsWith('.png') || !file_name.endsWith('.gif')) {
                     return;
                 }
 
