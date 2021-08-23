@@ -1,6 +1,6 @@
 body{
     /* BACKGROUND IMAGE */
-    background-image: url("bg_worms_lowres.png");
+    background-image: url("static/bg_worms_lowres.png");
     background-position: center;
     background-size: 150%;
     
@@ -9,7 +9,7 @@ body{
     color: cornsilk;
 
     /* Custom cursor :o */
-    cursor: url('maxxer_cursor_scanlines.png'), default;
+    cursor: url('static/maxxer_cursor_scanlines.png'), default;
 
     /* OVERFLOW */
     overflow-x: hidden;
